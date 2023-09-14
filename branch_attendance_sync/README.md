@@ -1,4 +1,4 @@
-Branch Attendance Sync Module
+Branch Attendance Sync Module(V14 & V15)
 ---------------------------------
 This module syncs employee attendance from different branch locations to the central Attendance model.
 
