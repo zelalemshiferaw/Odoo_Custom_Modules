@@ -1,4 +1,4 @@
-Stock Transfer
+Stock Transfer (V14)
 ---------------------------
 The Stock Transfer module allows for requesting and tracking internal stock transfers between locations. It provides a fully automated workflow for approval and fulfillment of transfer requests.
 
