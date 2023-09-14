@@ -25,7 +25,7 @@ Click "Confirm"
 
 Click confirm
 ---------------------------------
-Related documents like pickings, invoices etc are now backdated to the original order date for consistency.
+Related documents like picking, stock move, product move, valuation, posting  etc are now backdated to the original order date for consistency.
 
 Support
 ---------------------------------
