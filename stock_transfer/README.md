@@ -1,10 +1,10 @@
-Transfer Request Management
+Stock Transfer (V14)
 ---------------------------
-The Transfer Request module allows for requesting and tracking internal stock transfers between locations. It provides a fully automated workflow for approval and fulfillment of transfer requests.
+The Stock Transfer module allows for requesting and tracking internal stock transfers between locations. It provides a fully automated workflow for approval and fulfillment of transfer requests.
 
 Request Initiation and Approval
 --------------------------------
-Users can create transfer requests from their assigned location. Requests go through a configurable approval workflow before confirmation. Approvers are notified by email.
+Users can create transfer requests from their assigned location. Requests go through a configurable approval workflow before confirmation.
 
 Item Details with Stock Tracking
 --------------------------------
