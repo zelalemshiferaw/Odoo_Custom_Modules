@@ -33,3 +33,7 @@ Generate reports from list views
 Automated Notifications
 --------------------------------
 Mail channel notification to generate report before end of each month
+
+Support
+-------------------------------------
+For any questions, contact zelalemshiferaw@gmail.com
