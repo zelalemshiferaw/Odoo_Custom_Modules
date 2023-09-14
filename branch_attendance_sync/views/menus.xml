@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- Form View -->
+    <record id="view_branch_sync_form" model="ir.ui.view">
+        <field name="name">branch.sync.form</field>
+        <field name="model">branch.sync</field>
+        <field name="arch" type="xml">
+            <form string="Sync">
+                <header>
+                    <button name="sync_branch_attendance" string="Sync Branch Data" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                        <div class="o_group_name">
+                            <h1>
+                                <field name="sync_descrption" placeholder="Description"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Branch Configuration" class="o_inner_group">
+                                <field name="branch_ip" string="Branch IP" col="4"/>
+                                <field name="branch_db" string="Branch DB" col="4"/>
+                                <field name="branch_user" string="Branch Login" col="4"/>
+                                <field name="branch_password" string="Branch Password" col="8"/>
+                                <field name="branch_name" string="Branch Name" col="4"/>
+                            </group>
+                            <group string="Centeral Configuration" class="o_inner_group">
+                                <field name="centeral_ip" string="Centeral IP" col="4"/>
+                                <field name="centeral_db" string="Centeral DB" col="4"/>
+                                <field name="centeral_user" string="Centeral User" col="4"/>
+                                <field name="centeral_password" string="Centeral Password" col="4"/>
+                            </group>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- List View -->
+    <record id="view_branch_sync_tree" model="ir.ui.view">
+        <field name="name">branch.sync.tree</field>
+        <field name="model">branch.sync</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="branch_name" string="Branch Name"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!-- Action -->
+    <record id="action_branch_sync" model="ir.actions.act_window">
+        <field name="name">Branch Biometric Sync</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">branch.sync</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face" color="blue">
+                Configure your IP!
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem action="action_branch_sync"
+              name="Branch Sync"
+              id="branch_sync_menu"
+              parent="hr_attendance.menu_hr_attendance_manage_attendances"
+              sequence="5"/>
+    
+    <record id="hrr_remote_view_form_inherit" model="ir.ui.view">
+        <field name="name">remoo.bran.inherited</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="remote_device_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    </data>
+</odoo>

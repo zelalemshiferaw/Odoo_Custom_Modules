@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_branch_sync,branch_attendance_sync.branch.sync,branch_attendance_sync.model_branch_sync,,1,1,1,1
