@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mass_validation,mass_validation.mass.validation,mass_validation.model_mass_validation,,1,1,1,1
+access_purchasemass_validation,mass_validation.purchasemass.validation,mass_validation.model_purchasemass_validation,,1,1,1,1

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mass_validation_form" model="ir.ui.view">
+        <field name="name">mass.validation.form</field>
+        <field name="model">mass.validation</field>
+        <field name="arch" type="xml">
+            <form string="Mass Validation">
+                <header>
+                    <button name="get_total_records" string="Get Records Count" attrs="{'invisible': [('state', '==', 'done')]}" type="object" class="btn-primary"/>
+                    <button name="get_stock_orders" string="Mass Validate" attrs="{'invisible': [('state', 'in', ['draft', 'done'])]}" type="object" class="btn-secondary"/>
+                    <field name="state" widget="statusbar" nolabel="1"/>
+                </header>
+                <sheet>
+                    <div class="o_panel_title_box">
+                        <h1 class="o_panel_title">
+                            <field name="name" placeholder="Enter description "/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <label for="start_date" string="Start Date"/>
+                            <div>
+                                <field name="start_date"/>
+                            </div>
+                        </group>
+                        <group>
+                            <label for="end_date" string="End Date"/>
+                            <div>
+                                <field name="end_date"/>
+                            </div>
+                        </group>
+                    </group>
+                    <group string="Non Cancel and Done State Records Count">
+                        <group>
+                            <label for="picking_records" string="Stock Picking Count"/>
+                            <div>
+                                <field name="picking_records"/>
+                            </div>
+                        </group>
+
+                        <group>
+                            <label for="total_records" string="Total Records Count"/>
+                            <div>
+                                <field name="total_records"/>
+                            </div>
+                        </group>
+                        <group>
+                            <label for="mrp_records" string="MRP Records Count"/>
+                            <div>
+                                <field name="mrp_records"/>
+                            </div>
+                        </group>
+                        <group>
+                            <label for="time_consumed" string="Execution Seconds"/>
+                            <div>
+                                <field name="time_consumed"/>
+                            </div>
+                        </group>
+                    </group>
+
+                    <group string="Validated Records Count Before Mass Validation">
+                        <group>
+                            <label for="done_state_picking_count" string="Validated Picking Count"/>
+                            <div>
+                                <field name="done_state_picking_count"/>
+                            </div>
+                        </group>
+
+                        <group>
+                            <label for="done_state_mrp_count" string="Validated MRP Count"/>
+                            <div>
+                                <field name="done_state_mrp_count"/>
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_mass_validation_tree" model="ir.ui.view">
+      <field name="name">mass.validation.tree</field>
+      <field name="model">mass.validation</field>
+      <field name="arch" type="xml">
+        <tree string="Mass Validation">
+            <field name="start_date"/>
+            <field name="end_date"/>
+            <field name="state"/>
+            <field name="name"/>
+            <field name="total_records"/>
+
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_mass_validation" model="ir.actions.act_window">
+        <field name="name">Mass Validation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mass.validation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+         <p class="o_view_nocontent_smiling_face">
+             Create Mass Validation Request Here!
+         </p> 
+       </field>
+    </record>
+
+    <menuitem  name="Mass Validation"
+                id="mass_validation_main_menu"
+                parent="stock.menu_stock_config_settings"
+                />
+
+    <menuitem  action="action_mass_validation"
+                name="MRP and Picking Mass Validation"
+                id="mass_validation_menu"
+                parent="mass_validation_main_menu"
+                />
+</odoo>
