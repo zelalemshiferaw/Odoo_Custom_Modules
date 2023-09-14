@@ -4,7 +4,7 @@ The Stock Transfer module allows for requesting and tracking internal stock tran
 
 Request Initiation and Approval
 --------------------------------
-Users can create transfer requests from their assigned location. Requests go through a configurable approval workflow before confirmation. Approvers are notified by email.
+Users can create transfer requests from their assigned location. Requests go through a configurable approval workflow before confirmation.
 
 Item Details with Stock Tracking
 --------------------------------
