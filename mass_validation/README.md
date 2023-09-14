@@ -1,4 +1,4 @@
-Mass MRP and Transfer Validation Module
+Mass MRP and Transfer Validation Module (V15)
 ----------------------------------------
 Streamline your manufacturing and inventory validation processes with this powerful module. Save time by validating multiple orders and transfers in one click.
 
