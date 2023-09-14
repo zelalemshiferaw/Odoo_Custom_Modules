@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <report
+        id="report_transfer_request_id"
+        string="Transfer Request"
+        model="transfer.request"
+        report_type="qweb-pdf"
+        name="stock_transfer.report_transfer_request_template"
+        file="stock_transfer.report_transfer_request_template"/>
+
+</odoo>

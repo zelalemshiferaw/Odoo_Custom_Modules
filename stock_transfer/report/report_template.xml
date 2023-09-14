@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_transfer_request_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <br/>
+                    <br/>
+                    <center><h2>Transfer Request</h2></center>
+                    <br/>
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <table class="table table-bordered" width="100%">
+                            <thead>
+                                <tr>
+                                    <th  ><strong>Sl No</strong></th>
+                                    <th  ><strong>Reference</strong></th>
+                                    <th  ><strong>Scheduled Date</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="sl_no" t-value="1"/>
+                                <t t-foreach="lines" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="sl_no"/>
+                                        </td>
+                                        <td>
+                                            <t  t-esc="line['name']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="line['scheduled_date']" />
+                                        </td>
+
+                                    </tr>
+                                    <t t-set="sl_no" t-value="sl_no+1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
