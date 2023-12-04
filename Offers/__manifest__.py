@@ -1,6 +1,6 @@
 {
-	'name': "Offers",
-	'version': '1.0',
+    'name': "Offers",
+    'version': '1.0',
     'summary': """
        Odoo Pos Offers Module
        """,
