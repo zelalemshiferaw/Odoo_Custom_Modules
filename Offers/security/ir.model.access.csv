@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_offer,pos.offer,model_pos_offer,,1,1,1,1
+access_offer_item,offer.item,model_offer_item,,1,1,1,1
+

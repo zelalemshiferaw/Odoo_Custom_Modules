@@ -1,0 +1,29 @@
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('before-footer')]" position="before">
+            <t>
+                <table>
+                    <thead>
+                        <tr style="border-bottom: 1px solid black;">
+                            <th style="text-align: left; padding: 4px;">
+                                Offered Products List
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="orderlines" t-as="order">
+                            <tr>
+                                <td style="text-align: left; padding: 2px; width: 30%;">
+                                    <t t-esc="order.get_product().list_of_offer_products"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </xpath>
+    </t>
+</templates>
+
+
+
