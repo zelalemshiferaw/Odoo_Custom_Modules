@@ -111,7 +111,7 @@ class PosOrder(models.Model):
                     order_lines_to_create.append((0, 0, order_line_vals))
 
         
-                order_lines_to_create_ids = [line[2]['product_id'] for line in order_lines_to_create]               
+                            
                 for line in order.lines:
                     check_is_offer = self.env['pos.offer'].search([('name', '=', line.product_id.id)])
                     if check_is_offer:
