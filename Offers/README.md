@@ -1,7 +1,7 @@
 
 Odoo Offer Module(V14)
 -----------------------------------------------------
-The Odoo Offer Module is a custom module developed for the Odoo Point of Sale (PoS) system. It allows users to create and configure promotional offers for a limited time period. An offer is defined as a grouping of one or more products that are sold at a discounted price during the offer period.
+The Odoo Offer Module is a custom module developed for the Odoo Point of Sale (PoS) system. It allows users to create and configure promotional offers for a limited period. An offer is defined as a grouping of one or more products that are sold at a discounted price during the offer period.
 
 Installation
 -------------------------------------------------------
@@ -11,7 +11,6 @@ Clone the repository to your local machine.
 Log in to your Odoo instance as an administrator.
 Go to the Apps menu and select "Update Apps List".
 Search for the "Offers Module" and click on the "Install" button.
-Once the installation is complete, restart the Odoo server.
 
 Features
 ------------------------------------------------------
@@ -30,7 +29,7 @@ Usage
 To use the Odoo Offer Module, follow these steps:
 
 Log in to your Odoo instance as an administrator.
-Go to the Point of Sale module.
+Go to the offers module.
 Create a new offer by clicking on the "Create Offer" button.
 Fill in the required fields such as offer product, price, date range, and description.
 Add products to the offer by selecting them from the list of available products.
