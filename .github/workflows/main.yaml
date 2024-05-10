@@ -11,8 +11,6 @@ on:
 jobs:
   unit-test:
     runs-on: ubuntu-latest
-    needs: [lint-with-black, lint-with-flake8]
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
