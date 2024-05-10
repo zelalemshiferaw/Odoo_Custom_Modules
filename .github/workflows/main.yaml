@@ -3,10 +3,10 @@ name: CI having lint (flack8 + black) + test coverage
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   lint-with-black:
@@ -28,7 +28,7 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false
           # Change to 'master' if your main branch differs
-          DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # default value for VALIDATE_PYTHON_FLAKE8 and VALIDATE_PYTHON_BLACK are true
           VALIDATE_PYTHON_FLAKE8: false
@@ -53,7 +53,7 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false
           # Change to 'master' if your main branch differs
-          DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # default value for black and flake8 are true
           VALIDATE_PYTHON_BLACK: false
