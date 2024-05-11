@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="res_partner_tupande_view_form" model="ir.ui.view">
+        <field name="name">res.partner.tupande</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="ce_portal.view_res_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fineract_client_id']" position="after">
+                <field name="tupande_client_id"/>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>
