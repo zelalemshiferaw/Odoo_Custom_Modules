@@ -1,8 +1,18 @@
-# test_hello.py
-from hello import app
+import unittest
 
-def test_hello():
-    response = app.test_client().get('/')
+def add(a, b):
+    return a + b
 
-    assert response.status_code == 200
-    assert response.data == b'Hello, World!'
+class TestAddFunction(unittest.TestCase):
+    def test_add_positive_numbers(self):
+        self.assertEqual(add(1, 2), 3)
+
+    def test_add_negative_numbers(self):
+        self.assertEqual(add(-1, -2), -3)
+
+    def test_add_mixed_numbers(self):
+        self.assertEqual(add(1, -2), -1)
+        self.assertEqual(add(-1, 2), 1)
+
+if __name__ == '__main__':
+    unittest.main()
