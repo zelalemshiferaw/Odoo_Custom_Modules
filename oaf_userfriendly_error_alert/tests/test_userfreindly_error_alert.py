@@ -17,7 +17,7 @@ test_pos_order_complete_data = {
 class TestPOSCreation(TransactionCase):
 
     def setUp(self):
-        super(TestPOS, self).setUp()
+        super(TestPOSCreation, self).setUp()
         company_id = 33
         order_id = self.env["pos.order"].create({
                       "company_id": 33,
@@ -72,7 +72,7 @@ class TestPOSCreation(TransactionCase):
 
     # Test for dependency resolution
     def test_create_pos_order_dependency_resolution(self):
-        vals = test_partner_complete_data
+        vals = test_pos_order_complete_data
         del vals["partner_id"]  # Missing Partner_id data
         with self.assertRaises(ValidationError):
             self.env["pos.order"].create(vals)

@@ -3,7 +3,7 @@ from odoo.tests import tagged
 from odoo.tests.common import TransactionCase
 
 test_partner_complete_data = {
-    "name":"Test Client"
+    "name":"Test Client",
     "firstName": "John",
     "lastName": "Doe",
     "nid": "xxxx-111-xxx",
