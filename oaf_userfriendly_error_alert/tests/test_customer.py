@@ -14,7 +14,7 @@ test_partner_complete_data = {
 class TestClientCreation(TransactionCase):
 
     def setUp(self):
-        super(TestClient, self).setUp()
+        super(TestClientCreation, self).setUp()
         vals = {"name": "Test Client"}
         self.test_partner = self.env["res.partner"].create(vals)
 
