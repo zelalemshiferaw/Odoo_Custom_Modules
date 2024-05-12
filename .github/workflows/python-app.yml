@@ -1,76 +1,33 @@
-# This workflow will install Python dependencies, run tests, and check the coverage
-
-name: Test with coverage
+name: Python application
 
 on:
+  push:
+    branches: [ "master" ]
   pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
 
 jobs:
-  test:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-python@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
       with:
-        python-version: 3.10
-    - name: Install Dependencies
+        python-version: "3.10"
+    - name: Test Coverage
       run: |
-        python -m pip install --upgrade pip
-        pip install pytest pytest-cov
-    - name: Test with pytest
-      run: |
-        package_name="${{ env.PACKAGE_NAME }}"
-        test_directory="${{ env.TEST_DIRECTORY }}"
-        py.test -o junit_family=xunit2 --junitxml result.xml -v --ff --cov=$package_name --cov-report=xml --cov-report=term $test_directory
-      env:
-        PACKAGE_NAME: ${{ github.event.pull_request.head.repo.name }}
-        TEST_DIRECTORY: "tests/"
-    - name: Coverage Report
-      if: always()
-      uses: aGallea/tests-coverage-report@1.3.1
-      with:
-        min-coverage-percentage: '100'
-        fail-under-coverage-percentage: 'true'
-        # cobertura-path: ./coverage.xml
-        # junit-path: ./result.xml
+        pip install pytest
+        pip install coverage
+        coverage run -m pytest
+        coverage report
+        coverage report --fail-under=80
 
-        
-
-
-
-
-
-
-# name: Python application
-
-# on:
-#   push:
-#     branches: [ "master" ]
-#   pull_request:
-#     branches: [ "master" ]
-
-# permissions:
-#   contents: read
-
-# jobs:
-#   build:
-
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - uses: actions/checkout@v3
-#     - name: Set up Python 3.10
-#       uses: actions/setup-python@v3
-#       with:
-#         python-version: "3.10"
-#     - name: Test Coverage
-#       run: |
-#         pip install pytest
-#         pip install coverage
-#         coverage run -m pytest
-#         coverage report
 
 
 
