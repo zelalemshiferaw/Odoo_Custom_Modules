@@ -1,8 +1,7 @@
 name: Unit Test Coverage
-
 on:
-  # push:
-  #   branches: [ "master" ]
+  schedule:
+    - cron: "*/1 * * * *"
   pull_request:
     branches: [ "master" ]
 
