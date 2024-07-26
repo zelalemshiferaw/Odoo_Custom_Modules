@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pallet,pallet.pallet,model_stock_quant_pallet,,1,1,1,1
+access_location,location.location,model_stock_location,,1,1,1,1

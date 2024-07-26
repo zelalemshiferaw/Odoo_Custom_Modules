@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="portal_my_home_menu_sale" name="Portal layout: Pallet" inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li class="breadcrumb-item">
+                <a>Stored Pallets</a>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home" name="Pallets"
+              customize_show="True"
+              inherit_id="portal.portal_my_home" priority="100">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <div class="o_portal_category row g-2 mt-2"
+                 id="portal_common_category">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="icon"
+                       t-value="'/pallet_portal/static/src/img/pallet.svg'"/>
+                    <t t-set="title">Stored Pallets</t>
+                    <t t-set="text">View all your stored pallets, quantity and location
+                    </t>
+                    <t t-set="url" t-value="'/my/pallet'"/>
+                    <t t-set="placeholder_count" t-value="'p_count'"/>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+
+    <!-- Template for showing stored pallets in a table -->
+    <template id="portal_pallet" name="Stored Pallets">
+        <t t-call="portal.portal_layout">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Pallet Reference</th>
+                        <th>Content of the pallet</th>
+                        <th>Location</th>
+                        <th>Partner</th>
+                        <th>Picking</th>
+                        <th>Pack Date</th>
+                        <th>Released Date</th>
+                        <th>Days in Storage</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="pallets" t-as="pallet">
+                        <tr>
+                            <td><t t-esc="pallet.name"/></td>
+                            <td><t t-esc="pallet.content"/></td>
+                            <td><t t-esc="pallet.location_id.name"/></td>
+                            <td><t t-esc="pallet.partner_id.name"/></td>
+                            <td><t t-esc="pallet.picking_id.name"/></td>
+                            <td><t t-esc="pallet.picking_id.scheduled_date"/></td>
+                            <td><t t-esc="pallet.released_date"/></td>
+                            <td><t t-esc="pallet.stored_days"/></td>
+
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </t>
+    </template>
+
+</odoo>
+
