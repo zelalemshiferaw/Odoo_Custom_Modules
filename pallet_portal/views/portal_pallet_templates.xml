@@ -21,8 +21,8 @@
                     <t t-set="title">Stored Pallets</t>
                     <t t-set="text">View all your stored pallets, quantity and location
                     </t>
-                    <t t-set="url" t-value="'/my/pallet'"/>
-                    <t t-set="placeholder_count" t-value="'p_count'"/>
+                    <t t-set="url" t-value="'/my_pallet'"/>
+                    <t t-set="placeholder_count" t-value="'pallet_count'"/>
                 </t>
             </div>
         </xpath>
@@ -30,19 +30,21 @@
 
 
     <!-- Template for showing stored pallets in a table -->
-    <template id="portal_pallet" name="Stored Pallets">
+   <template id="portal_pallet" name="Stored Pallets">
         <t t-call="portal.portal_layout">
+           <t t-set="breadcrumbs_searchbar" t-value="True"/>
+           <t t-call="portal.portal_searchbar">
+               <t t-set="title">Pallets</t>
+           </t>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Pallet Reference</th>
                         <th>Content of the pallet</th>
                         <th>Location</th>
-                        <th>Partner</th>
-                        <th>Picking</th>
-                        <th>Pack Date</th>
                         <th>Released Date</th>
-                        <th>Days in Storage</th>
+                        <th>Status</th>
+                        <th>Picture</th>
 
                     </tr>
                 </thead>
@@ -51,19 +53,22 @@
                         <tr>
                             <td><t t-esc="pallet.name"/></td>
                             <td><t t-esc="pallet.content"/></td>
-                            <td><t t-esc="pallet.location_id.name"/></td>
-                            <td><t t-esc="pallet.partner_id.name"/></td>
-                            <td><t t-esc="pallet.picking_id.name"/></td>
-                            <td><t t-esc="pallet.picking_id.scheduled_date"/></td>
+                            <td><t t-esc="pallet.location_id.name"/></td>                            
                             <td><t t-esc="pallet.released_date"/></td>
-                            <td><t t-esc="pallet.stored_days"/></td>
-
+                            <td><t t-esc="pallet.state"/></td>
+                            <td>
+                                <a t-attf-href="data:image/png;base64,{{pallet.image}}" target="_blank">
+                                    <img t-attf-src="data:image/png;base64,{{pallet.image}}" style="max-width: 50px; max-height: 50px;" />
+                                </a>
+                            </td>
                         </tr>
                     </t>
                 </tbody>
             </table>
         </t>
     </template>
+
+
 
 </odoo>
 
