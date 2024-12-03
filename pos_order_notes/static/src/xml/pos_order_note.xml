@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<templates id="template" xml:space="preserve">
+    <t t-name="WkAlertPopUp" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <Draggable>
+                <div class="popup popup-confirm">
+                    <header class="title drag-handle">
+                        <t t-esc=" props.title || 'Message' " />
+                    </header>
+                    <main class="body">
+                        <t t-esc="  props.body || '' " />
+                    </main>
+                    <footer class="footer">
+                        <div class="button cancel" t-on-click="cancel">
+                            Ok
+                        </div>
+                    </footer>
+                </div>
+            </Draggable>
+        </div>
+    </t>
+
+    <t t-name="PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('payment-buttons-container')]" position="before">
+            <t t-if="env.pos.config.on_order">
+                <center>
+                    <textarea id="order_note" style="width:610px; height:50px;resize: none;" t-on-focus="wkKeydownOrderNote" placeholder="Enter the M-PESA Transaction Code"></textarea>
+                </center>
+            </t>
+        </xpath>
+    </t>
+
+    <t t-name="WrappedProductNameLines" t-inherit="point_of_sale.WrappedProductNameLines" t-inherit-mode="extension" owl="1">
+        <xpath expr="span" position="inside">
+            <t t-if="env.pos.config.on_product_line">
+                <t t-if="props.line.order_line_note!=''">
+                    <div class="pos-receipt-left-padding">
+                        <i>
+                            <t t-esc="props.line.order_line_note" />
+                        </i>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+    </t>
+
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('before-footer')]" position="after">
+            <t t-if="env.pos.config.on_order and env.pos.config.receipt_order_note">
+                <br/>
+                <t t-if="receipt.order_note and receipt.order_note !=''">
+                    <div>
+						Note:
+                        <span t-esc='receipt.order_note' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+    </t>
+
+    <t t-name="WkTextAreaPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <Draggable>
+                <div class="popup popup-textarea" style="top: 150.5px;left: 236px;height: 362px;transform: none;">
+                    <header class="title drag-handle">
+                        <t t-esc="props.title" />
+                    </header>
+                    <textarea style="width:92%;height:56%;resize:none;" t-att-value="props.value"></textarea>
+                    <footer class="footer">
+                        <div class="button confirm" t-on-click="confirm">
+							Ok
+                        </div>
+                        <div class="button cancel" t-on-click="cancel">
+							Cancel
+                        </div>
+                    </footer>
+                </div>
+            </Draggable>
+        </div>
+    </t>
+
+    <t t-name="AddOrderlineNoteButton" owl="1">
+        <div id='add_note' class='control-button' style="height:40px;width:48%;margin-top:2%;">
+            <i class='fa fa-tag' />
+Add/Modify Note
+        </div>
+    </t>
+
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//ul[hasclass('info-list')]" position="inside">
+            <t t-if="env.pos.config.on_product_line">
+                <div id='extra_comments' style='font-weight:bold;'>
+                    <t t-esc="props.line.get_order_line_comment()"/>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>
